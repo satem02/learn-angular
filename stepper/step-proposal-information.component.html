@@ -1,0 +1,16 @@
+<form [formGroup]="ProposalInformationFormGroup">
+ 
+        <mat-form-field>
+            <input matInput placeholder="{{ 'FIRST_NAME' | translate}}" formControlName="firstName" >
+            <mat-error>{{ 'REQUIRED_FIELD' | translate}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="{{ 'LAST_NAME' | translate}}" formControlName="lastName" >            
+            <mat-error>{{ 'REQUIRED_FIELD' | translate}}</mat-error>
+          </mat-form-field>
+          
+        <div>
+          <button mat-button matStepperNext >Next</button>
+        </div>
+      </form>
+      

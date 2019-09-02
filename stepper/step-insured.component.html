@@ -1,0 +1,14 @@
+<form [formGroup]="InsuredFormGroup">
+    
+        <ng-template matStepLabel>Fill out your address</ng-template>
+        
+        <mat-form-field>
+          <input matInput placeholder="Address" formControlName="address">
+        </mat-form-field>
+        
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      
+      </form>

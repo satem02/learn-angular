@@ -1,0 +1,13 @@
+<mat-horizontal-stepper labelPosition="bottom" [linear]="true" #stepper>
+
+  <mat-step [stepControl]="frmStepProposalInformation">
+    <ng-template matStepLabel>{{ 'STEP_PROPOSAL_INFORMATION' | translate}}</ng-template>
+    <app-step-proposal-information></app-step-proposal-information>
+  </mat-step>
+
+  <mat-step [stepControl]="frmInsured">
+      <ng-template matStepLabel>{{ 'STEP_PROPOSAL_INSURED' | translate}}</ng-template>
+    <app-step-insured></app-step-insured>
+  </mat-step>
+
+</mat-horizontal-stepper>
