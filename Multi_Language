@@ -1,0 +1,38 @@
+1 - src/assets/i18/tr.json  dosyası olusturulur         
+2 - app.module içerisi:
+        import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+        import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+        import { HttpClient,HttpClientModule  } from '@angular/common/http';
+
+        export function translateHttpLoaderFactory(http: HttpClient) {
+          return new TranslateHttpLoader(http);
+        }
+        @NgModule({
+          imports: [
+            HttpClientModule,
+            TranslateModule.forRoot({
+              loader: {
+                provide: TranslateLoader,
+                useFactory: translateHttpLoaderFactory,
+                deps: [HttpClient]
+              }
+            })
+          ],
+        .....
+şeklinde dosyalar eklenir.
+
+3 - app.component içerisi:
+    import { TranslateService } from '@ngx-translate/core';
+
+    constructor(private translateService: TranslateService) {
+    translateService.addLangs(['en', 'tr']);
+    translateService.setDefaultLang('tr');
+  }
+  ...
+  şeklinde eklemeler yapılır.
+  
+ 4- hangi dosyada eklenecekse asagıdakı sekılde eklenir.
+   <mat-form-field>
+      <input matInput placeholder="{{ 'FIRST_NAME' | translate}}" formControlName="firstName" >
+      <mat-error>{{ 'REQUIRED_FIELD' | translate}}</mat-error>
+    </mat-form-field>
